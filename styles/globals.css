@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://kendo.cdn.telerik.com/themes/5.10.0/default/default-purple.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  :root {
+    --color-text-active: #A042E1;
+    --color-light: #F5F8FA;
+    --color-dark: #1C1F22;
+    --color-muted: #687B8B;
+    --color-button-enabled:#A042E1 ;
+    --color-button-enabled-hover: ;
+    --color-button-disabled:#A042E1 ;
+    --color-button-disabled-hover: ;
+  }
+
+
+
+}
+
+
+@font-face {
+  font-family: "Caslon";
+  src: url('../public/fonts/caslon-bold-regular_1_g8v4r/Caslon\ Bold\ Regular/Caslon\ Bold\ Regular.otf');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+}
+
+@font-face {
+  font-family: 'Unica One';
+  src: url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+}
