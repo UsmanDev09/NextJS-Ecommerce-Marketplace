@@ -1,19 +1,19 @@
 import { SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-import { Product } from "../model/product";
+import  Product  from "../model/product";
 
 import "../styles/globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
 import  Footer  from "../components/Footer/Footer";
-import { Category } from "../model/category";
+import  Category  from "../model/category";
 import CategoryAPI from "../api/category/category";
 import ProductAPI from "../api/product/product";
 
 function MyApp({ Component, pageProps, arrayOfCategories }: any) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
-  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
   const [searching, setSearching] = useState(false);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps, arrayOfCategories }: any) {
   }
   const addToCart = (
     id: number,
-    product: Product,
+    product: any,
     quantity: number,
     price: number,
     name: string
@@ -92,8 +92,8 @@ function MyApp({ Component, pageProps, arrayOfCategories }: any) {
       setSearching(true);
       setSearchResults([]);
       const response = await ProductAPI.getAllProducts(categoryId)
-      const products: Product[] = await response.json();
-      products.forEach((product: Product) => {
+      const products: any[] = await response.json();
+      products.forEach((product: any) => {
         if (product.name === searchValue)
           setSearchResults([...searchResults, product]);
       });
@@ -137,7 +137,7 @@ function MyApp({ Component, pageProps, arrayOfCategories }: any) {
 MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   try {
     const response = await CategoryAPI.getAllCategories()
-    const categories: Category = await response.json();
+    const categories: any = await response.json();
     const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
     let pageProps = {};
     if (Component.getInitialProps)

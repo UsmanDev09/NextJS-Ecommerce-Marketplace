@@ -84,7 +84,7 @@ export const GooglePay = ({ cart }: IProps) => {
     let totalPrice = 0;
 
     const shippingDetails: google.payments.api.DisplayItem[] =
-      cart.products.map((p) => {
+      cart.products.map((p:any) => {
         totalPrice += p.price;
 
         return {

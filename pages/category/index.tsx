@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
-import { Category } from "../../model/category";
+import Category from "../../model/category";
 import SideBar from "../../components/Categories/SideBar";
 import Products from "../../components/Products/Products";
 import CategoryAPI from "../../api/category/category";
@@ -92,7 +92,7 @@ const DisplayCategories = (props: any) => {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const response = await CategoryAPI.getAllCategories();
-    const categories: Category[] = await response.json();
+    const categories: any[] = await response.json();
 
     return {
       props: { categories: categories },

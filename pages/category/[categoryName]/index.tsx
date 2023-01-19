@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { Category } from "../../../model/category";
+import  Category  from "../../../model/category";
 import Products from "../../../components/Products/Products";
 import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
@@ -88,7 +88,7 @@ export const getStaticProps = async (context: any) => {
 
   try {
     const response = await CategoryAPI.getCategory(name);
-    const singleCategory: Category = await response.json();
+    const singleCategory: any = await response.json();
     return {
       props: {
         category: singleCategory,
@@ -103,18 +103,19 @@ export const getStaticProps = async (context: any) => {
 
 export const getStaticPaths = async () => {
   try {
-    const response = await CategoryAPI.getAllCategories();
+    // const response = await CategoryAPI.getAllCategories();
 
-    const categories = await response.json();
-    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    const names = arrayOfCategories.map((category: any) => category[Object.keys(category)[0]].name);
-    const paths = names.map((name: string) => ({
-      params: {
-        categoryName: name.toString(),
-      },
-    }));
+    // const categories = await response.json();
+    // const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
+    // const names = arrayOfCategories ? arrayOfCategories.map((category: any) => category[Object.keys(category)[0]].name): null;
+    // const paths = names ? names.map((name: string) => ({
+    //   params: {
+    //     categoryName: name.toString(),
+    //   },
+    // })): {params:{categoryName: "Usman"}};
+
     return {
-      paths,
+      paths:[],
       fallback: false,
     };
   } catch (error: any) {

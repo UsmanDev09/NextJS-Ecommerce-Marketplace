@@ -5,7 +5,7 @@ import Quantity from "../../components/Products/Quantity";
 import defaultImage from "../../public/images/default-image.jpg";
 import cartIcon from "../../public/images/cart.svg";
 import Products from "../../components/Products/Products";
-import { Category } from "../../model/category";
+import Category from "../../model/category";
 import Rating from "../../components/Products/Rating";
 
 const Product = (props: any) => {

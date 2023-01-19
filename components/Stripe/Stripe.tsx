@@ -28,7 +28,7 @@ export const Stripe = ({ cart, currencySymbol }: IProps) => {
     <>
       <section className="stripe">
         <h1 className="stripe-title">Checkout with Stripe</h1>
-        {cart.products.map((p, k) => (
+        {cart.products.map((p:any, k:any) => (
           <div key={`product-${p.name}`} className="product">
             <div className="header">
               <Image

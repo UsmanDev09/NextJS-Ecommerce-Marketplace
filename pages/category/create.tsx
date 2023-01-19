@@ -2,7 +2,7 @@ import { Formik, Field } from "formik"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
-import { Category } from "../../model/category"
+import  Category from "../../model/category"
 import { categorySchema } from "../../validations/categorySchema"
 import InputField from "../../components/Fields/InputField"
 import CategoryAPI from "../../api/category/category"
@@ -12,7 +12,7 @@ import ImageUploader from "../../components/ImageUploader/ImageUploader"
 import ErrorComponent from "../../components/ErrorComponent/ErrorComponent"
 import * as path from "../../constants/paths"
 
-const CreateCategory = ({ category }: { category: Category }) => {
+const CreateCategory = ({ category }: { category: AnalyserOptions }) => {
   const [errorType, setErrorType] = useState<any>()
   const [errorMsg, setErrorMsg] = useState<any>()
   const [token, setToken] = useState<any>()

@@ -1,9 +1,9 @@
-import { Product } from "./product";
+import  Product  from "./product";
 
 export interface Cart {
   id: string;
   userId: string;
-  products: Product[];
+  products: any;
   subTotal: number;
   quantity: number;
   createdAt: number;
