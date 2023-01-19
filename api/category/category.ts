@@ -1,4 +1,4 @@
-import { Category } from "../../model/category";
+import  Category  from "../../model/category";
 import { fullUrl } from "../api";
 
 const categoryRoute = "/api/order";
@@ -7,7 +7,7 @@ const CategoryAPI = Object.freeze({
   createCategory: (formData: any, token: any) =>
   createCategory(formData, token),
   deleteCategory: (id: number) => deleteCategory(id),
-  updateCategory: (id: number, category: Category) =>
+  updateCategory: (id: number, category: any) =>
   updateCategory(id, category),
   getAllCategories: () => getAllCategories(),
   getCategory: (name: string) => getCategory(name),
@@ -22,7 +22,7 @@ const createCategory = (formData: any, token: any) =>
     body: JSON.stringify(formData),
   })
 
-const updateCategory = (id: number, category: Category) =>
+const updateCategory = (id: number, category: any) =>
   fetch(`${fullUrl}${categoryRoute}/updateCategory/${id}`, {
     method: "PUT",
     headers: {
