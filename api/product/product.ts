@@ -1,24 +1,24 @@
-import { Product } from "../../model/product";
+import  Product  from "../../model/product";
 import { fullUrl } from "../api";
 
 const productRoute = "/api/product"; // might have to change once the api is tested
 
 const ProductAPI = Object.freeze({
-  createProduct: ( formData: any, token: any) =>
-  createProduct( formData, token),
+  createProduct: ( formData: any) =>
+  createProduct( formData),
   deleteProduct: (id: number) => deleteCategory(id),
   addProductToCategory: (id:any, name: string, token:any) => addProductToCategory(id,name,token),
-  updateProduct: (id: number, product: Product) => updateProduct(id, product),
+  updateProduct: (id: number, product: any) => updateProduct(id, product),
   getProduct: (id: number) => getProducts(id),
   getAllProducts: (id: number) => getAllProducts(id),
 });
 
-const createProduct = ( formData: any, token: any) => {
-  return  fetch(`${fullUrl}/product`, {
+const createProduct = ( formData: any) => {
+  return  fetch(`http://localhost:3000/api/createproducts`, {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    // headers: {
+    //   Authorization: `Bearer ${token}`,
+    // },
     body: JSON.stringify(formData),
   })
   }
@@ -31,7 +31,7 @@ const createProduct = ( formData: any, token: any) => {
       body: JSON.stringify(data),
     })
   }
-const updateProduct = (id: number, product: Product) =>
+const updateProduct = (id: number, product: any) =>
   fetch(`${fullUrl}${productRoute}/updateProduct/${id}`, {
     method: "PUT",
     headers: {

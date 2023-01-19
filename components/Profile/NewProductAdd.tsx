@@ -18,7 +18,7 @@ import * as path from '../../constants/paths'
 
 
 const NewProductAdd = (props: any) => {
-
+  console.log("New Product Add", props)
   const [image, setImage] = useState<any[]>([])
   const [filters, setFilters] = useState<any[]>([])
   const [token, setToken] = useState<any>()
@@ -32,13 +32,13 @@ const NewProductAdd = (props: any) => {
       JSON.parse(localStorage.getItem('token') || '')
     );
   }, []);
-  const categoryArray = props.props.categories.map((category:any) => {
+  const categoryArray = props.props.categories !== undefined && props?.props?.categories.map((category:any) => {
     return {
       label: category[Object.keys(category)[0]].name,
       value: category[Object.keys(category)[0]].name,
     }
   })
-  categoryArray.unshift({
+  categoryArray && categoryArray.unshift({
       label: "Select your Category",
       value: "",
     },)
@@ -112,10 +112,11 @@ const NewProductAdd = (props: any) => {
     <Formik
       onSubmit={async (data: any) => {
         try {
-          const response = await ProductAPI.createProduct( data, token);
-          const jsonResponse = await response?.json();
-          const productResponse = await ProductAPI.addProductToCategory(jsonResponse, data.category, token)
-          router.push(`${path.CATEGORIES}`)
+          const response = await ProductAPI.createProduct( data);
+          console.log(response);
+          // const jsonResponse = await response?.json();
+          // const productResponse = await ProductAPI.addProductToCategory(jsonResponse, data.category, token)
+          // router.push(`${path.CATEGORIES}`)
         } catch (error: any) {
           setErrorMsg(error.message)
           setErrorType(error.name)

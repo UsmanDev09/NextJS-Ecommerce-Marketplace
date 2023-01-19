@@ -43,7 +43,7 @@ const SideBar = (props: any) => {
   ];
   return (
     <div className="w-80" aria-label="Sidebar">
-      <div className="xs:overflow-y-auto md:overflow-y-clip xl:overflow-y-auto w-[80vw] py-4 px-3">
+      <div className="xs:overflow-y-auto md:overflow-y-clip xl:overflow-y-auto xs:w-[80vw] md:w-auto py-4 px-3">
         <ul className="space-y-2">
           <li className="flex items-center border-b-2 border-black pb-3">
             <Link href={`${path.HOMEPAGE}`} className="font-comfortaa">

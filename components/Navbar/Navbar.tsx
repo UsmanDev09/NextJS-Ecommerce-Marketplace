@@ -162,7 +162,7 @@ export const Navbar = (props: any) => {
           <button
               data-collapse-toggle="mega-menu-icons"
               type="button"
-              className="sm:flex xs:order-2  md:order-1 lg:hidden items-center pt-2 pb-2 ml-0 text-sm text-white rounded-lg  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="sm:flex xs:order-2  md:order-1 lg:hidden items-center pt-2 pb-2 ml-0 text-sm text-white rounded-lg  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 "
               aria-controls="mega-menu-icons"
               aria-expanded="false"
             >

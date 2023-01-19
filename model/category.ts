@@ -1,10 +1,15 @@
-import { Product } from "./product";
-export interface Category {
-  categoryId?: string;
-  name: string;
-  image: string;
-  products: Product[];
-  createdBy: string;
-  createdAt?: number;
-  updatedAt?: number;
-}
+
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+const CategorySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  products: [{ type: Schema.Types.ObjectId, ref: 'product', index: true }],
+}, {timestamps: true})
+
+mongoose.models = {}
+
+export default mongoose.model('Category', CategorySchema)
