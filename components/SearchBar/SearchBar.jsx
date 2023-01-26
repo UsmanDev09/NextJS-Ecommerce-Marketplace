@@ -64,9 +64,9 @@ const SearchBar = (props) => {
                   aria-labelledby="dropdown-button"
                 >
                   {props.categories &&
-                    props.categories.map((category) => {
+                    props.categories.map((category, i) => {
                       return (
-                        <li>
+                        <li key={i}>
                           <button
                             onClick={() => {
                               setCategoryId(category.categoryId);

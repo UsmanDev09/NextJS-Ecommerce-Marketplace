@@ -113,16 +113,17 @@ export const getStaticProps = async (context) => {
 
 export const getStaticPaths = async () => {
   try {
-    const response = await CategoryAPI.getAllCategories();
-    const categories = await response.json();
-    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    const names = arrayOfCategories && arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
-    let paths = names.map((name) => ({
-      params: {
-        categoryName: name.toString(),
-      },
-    }))
-    console.log(paths)
+    // const response = await CategoryAPI.getAllCategories();
+    // const categories = await response.json();
+    // const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
+    // const names = arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
+    // const paths =  names.map((name) => ({
+    //   params: {
+    //     categoryName: name.toString(),
+    //   },
+    // }))
+    const paths = []
+
     return {
       paths,
       fallback: false,

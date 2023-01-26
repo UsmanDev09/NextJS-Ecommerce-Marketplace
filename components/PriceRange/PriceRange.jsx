@@ -27,6 +27,7 @@ const PriceRange = () => {
       >
         {handles.map(({ getHandleProps }) => (
           <button
+            key={1}
             {...getHandleProps({
               style: {
                 width: "28px",

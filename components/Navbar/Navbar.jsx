@@ -134,7 +134,7 @@ export const Navbar = (props) => {
     >
       <div className=" flex flex-wrap items-center xs:justify-center md:justify-between lg:pt-0 max-w-screen-3xl">
         <div className="flex h-10 items-center xs:order-1 xs:mr-auto md:m-0">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               {yScroll < 722 && router.pathname === `${path.HOMEPAGE}` ? (
                 <Image src={whiteLogo} width={140} height={10} alt="logo" />
@@ -142,7 +142,7 @@ export const Navbar = (props) => {
                 <Image src={blackLogo} width={150} height={10} alt="logo" />
               )}
             </span>
-          </a>
+          </Link>
         </div>
         <div className="xs:order-3 lg:pb-0 md:order-2">
           <SearchBar
