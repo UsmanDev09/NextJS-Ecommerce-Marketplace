@@ -74,7 +74,7 @@ const SingleCategory = ({categories, category, addToCart, removeFromCart, remove
               subTotal={subTotal}
               hideCategoryName={true}
               categoryName={category.name}
-              products={category[0].products !== null && category[0].products}
+              products={category[0]?.products !== null && category[0]?.products}
               height={220}
               width={271}
               gap={24}
@@ -87,16 +87,17 @@ const SingleCategory = ({categories, category, addToCart, removeFromCart, remove
   );
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const name = context.params.categoryName;
   try {
+    console.log('here', name);
     const response = await CategoryAPI.getCategory(name);
-
-    const singleCategory = await response.json();
-
+    console.log(response);
+    const singleCategory = await response.json()
+    console.log(singleCategory)
     return {
       props: {
-        category: singleCategory,
+        category: JSON.parse(JSON.stringify(singleCategory)),
       },
     };
   } catch (error) {
@@ -106,28 +107,28 @@ export const getStaticProps = async (context) => {
   }
 };
 
-export const getStaticPaths = async () => {
-  try {
-    // const response = await CategoryAPI.getAllCategories();
-    // const categories = await response.json();
-    // const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    // const names = arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
-    // const paths =  names.map((name) => ({
-    //   params: {
-    //     categoryName: name.toString(),
-    //   },
-    // }))
-    const paths = []
+// export const getStaticPaths = async () => {
+//   try {
+//     const response = await CategoryAPI.getAllCategories();
+//     const categories = await response.json();
+//     const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
+//     const names = arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
+//     const paths =  names.map((name) => ({
+//       params: {
+//         categoryName: name.toString(),
+//       },
+//     }))
+//     console.log(paths)
 
-    return {
-      paths,
-      fallback: false,
-    };
-  } catch (error) {
-    return {
-      props: { errCode: 500, message: error },
-    };
-  }
-};
+//     return {
+//       paths,
+//       fallback: false,
+//     };
+//   } catch (error) {
+//     return {
+//       props: { errCode: 500, message: error },
+//     };
+//   }
+// };
 
 export default SingleCategory;
