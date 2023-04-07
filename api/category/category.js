@@ -12,13 +12,13 @@ const CategoryAPI = Object.freeze({
 });
 
 const createCategory = (formData) =>
-  fetch(`http://localhost:3000/api/createcategory`, {
+  fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/createcategory`, {
     method: 'POST',
     // headers: {
     //   Authorization: `Bearer ${token}`,
     // },
     body: JSON.stringify(formData),
-  });
+  })
 
 const updateCategory = (id, category) =>
   fetch(`${fullUrl}${categoryRoute}/updateCategory/${id}`, {
@@ -41,21 +41,21 @@ const deleteCategory = (id) =>
   });
 
 const getCategory = (name) =>
-  fetch(`http://localhost:3000/api/getcategory`, {
+  fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/getcategory`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'text/plain',
     },
     body: name,
-  });
+  })
 const getAllCategories = () => {
-  return fetch(`http://localhost:3000/api/getcategories`, {
+  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/getcategories`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'text/plain',
     },
-  });
+  })
 };
 export default CategoryAPI;

@@ -14,22 +14,22 @@ const ProductAPI = Object.freeze({
 });
 
 const createProduct = (formData) => {
-  return fetch(`http://localhost:3000/api/createproducts`, {
+  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/createproducts`, {
     method: 'POST',
     // headers: {
     //   Authorization: `Bearer ${token}`,
     // },
     body: JSON.stringify(formData),
-  });
+  })
 };
 const addProductToCategory = (data, name, token) => {
-  return fetch(`http://localhost:3000/api/addproductstocategory`, {
+  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/addproductstocategory`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(data),
-  });
+  })
 };
 const updateProduct = (id, product) =>
   fetch(`${fullUrl}${productRoute}/updateProduct/${id}`, {
@@ -61,13 +61,13 @@ const getAllProducts = (categoryId) =>
   });
 
 const getProducts = () => {
-  return fetch(`http://localhost:3000/api/getproducts`, {
+  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/getproducts`, {
     method: 'GET',
     // headers: {
     //   Authorization: `Bearer ${token}`,
     // },
     body: JSON.stringify(formData),
-  });
+  })
 };
 
 export default ProductAPI;
