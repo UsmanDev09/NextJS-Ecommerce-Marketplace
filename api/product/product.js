@@ -14,7 +14,7 @@ const ProductAPI = Object.freeze({
 });
 
 const createProduct = (formData) => {
-  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/createproducts`, {
+  return fetch(`${fullUrl}/api/createproducts`, {
     method: 'POST',
     // headers: {
     //   Authorization: `Bearer ${token}`,
@@ -23,7 +23,7 @@ const createProduct = (formData) => {
   })
 };
 const addProductToCategory = (data, name, token) => {
-  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/addproductstocategory`, {
+  return fetch(`${fullUrl}/api/addproductstocategory`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ const getAllProducts = (categoryId) =>
   });
 
 const getProducts = () => {
-  return fetch(`https://next-js-ecommerce-marketplace-rhwb-i4yws1ato-usmandev09.vercel.app/api/getproducts`, {
+  return fetch(`${fullUrl}/api/getproducts`, {
     method: 'GET',
     // headers: {
     //   Authorization: `Bearer ${token}`,
