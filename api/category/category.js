@@ -50,7 +50,6 @@ const getCategory = (name) =>
     body: name,
   })
 const getAllCategories = () => {
-  console.log('getAllCategories', `${fullUrl}/api/category`)
   return fetch(`${fullUrl}/api/getcategories`, {
     method: 'GET',
     headers: {
