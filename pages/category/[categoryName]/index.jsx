@@ -90,7 +90,6 @@ const SingleCategory = ({categories, category, addToCart, removeFromCart, remove
 export const getServerSideProps = async (context) => {
   const name = context.params.categoryName;
   try {
-    console.log('here', name);
     const response = await CategoryAPI.getCategory(name);
     console.log(response);
     const singleCategory = await response.json()
