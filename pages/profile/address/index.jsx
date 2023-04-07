@@ -6,7 +6,7 @@ import AddAdress from "../../../components/Profile/AddAdress";
 const Addresses = () => {
 
   return (
-    <div className="padding mx-auto  sm:flex xs:flex-wrap  xl:flex-nowrap min-h-[calc(100vh-260px)]">
+    <div className="padding mx-auto sm:flex xs:flex-wrap  xl:flex-nowrap min-h-[calc(100vh-260px)]">
       <ProfileSideBar />
       <AddAdress />
     </div>

@@ -13,11 +13,11 @@ import {
 
 export default function Datepicker({ selectedDate, setSelectedDate }) {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const [dayCount, setDayCount] = useState<Array<number>>([]);
-  const [blankDays, setBlankDays] = useState<Array<number>>([]);
+  const [dayCount, setDayCount] = useState([]);
+  const [blankDays, setBlankDays] = useState([]);
   const [showDatepicker, setShowDatepicker] = useState(false);
   const [datepickerHeaderDate, setDatepickerHeaderDate] = useState(new Date());
-  const [type, setType] = useState<DatepickerType>("date");
+  const [type, setType] = useState("date");
 
   const decrement = () => {
     switch (type) {
