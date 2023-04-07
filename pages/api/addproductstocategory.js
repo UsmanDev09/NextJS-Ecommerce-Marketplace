@@ -6,7 +6,6 @@ const handler = async (req, res) => {
   const request = JSON.parse(req.body);
   if (req.method === 'PUT') {
     let category = await Category.find({ name: request.categoryName });
-    console.log('c', category);
     let product = await Product.create({
       name: request.name,
       price: request.price,
@@ -14,12 +13,10 @@ const handler = async (req, res) => {
       rating: request.rating,
       image: request.image,
     });
-    console.log(product);
     let updateCategory = await Category.findOneAndUpdate(
       { name: request.categoryName },
       { $push: { products: product } }
     );
-    console.log(updateCategory);
     res.status(200).json({ product: product, category: updateCategory });
   } else {
     res.status(404).json({ success: 'error' });

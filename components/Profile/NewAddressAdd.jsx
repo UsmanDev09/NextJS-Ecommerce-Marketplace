@@ -72,7 +72,7 @@ const NewAddressAdd = (props) => {
           encType="multipart/form-data"
           method="post"
         >
-          <div className="p-16 w-full">
+          <div className="pt-16 pb-16 w-full">
             <p className="font-unica text-[30px] py-5">ADD NEW ADDRESS</p>
             <div className="max-w-[900px] font-comfortaa">
               <div>

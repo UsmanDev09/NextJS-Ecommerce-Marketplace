@@ -4,13 +4,11 @@ import startIcon from "../../public/images/star.png";
 import addIcon from "../../public/images/add.svg";
 
 const Products = ({addToCart, hideCategoryName, categoryName, products, width, height, gap}) => {
-  console.log('products',(products))
   return (
-    <div>
-      <div className="flex flex-wrap mt-10">
-        <div className={``}>
+      <div className={`flex padding ${!hideCategoryName && 'overflow-x-auto scrollbar'} mt-10`}>
+        <div>
           {!hideCategoryName && (
-            <div className="flex pl-14">
+            <div className="flex">
               <h1 className="text-3xl mb-4 font-unica w-[80%] uppercase">
                 {categoryName}
               </h1>
@@ -18,17 +16,15 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, h
             </div>
           )}
           <div
-            className={`flex flex-wrap ${
-              gap && `gap-x-[${gap}px], justify-start pl-10`    //generic
-            }`}
+            className={`flex ${gap && `gap-x-[${gap}px] justify-start`} ${hideCategoryName && 'flex-wrap justify-end' } `}
           >
 
             {products  ? (
-              Object.keys(products).map((product) => {
+              Object.keys(products).map((product, index) => {
                 return (
                   <div
                     key={products[product].id}
-                    className="lg:w-auto md:w-auto p-4 w-full"
+                    className={`${index === 0 && 'pl-0'} lg:w-auto md:w-auto p-4 w-full}`}
                   >
                     <div className="rounded-xl">
                       <div className={`bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center  items-end rounded-xl ${width === 360 && 'w-[360px]'} ${width === 271 && 'w-[271px]'} ${height === 260 && 'h-[260px]'} ${height === 220 && 'h-[220px]'} `}>
@@ -57,7 +53,7 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, h
                       <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                         Name of selling party
                       </p>
-                      <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['0'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                      <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['0'] after:text-[16px] after:relative after:top-[-10px] after:mt-2 after:font-unica ">
                         ${products[product].price}.
                       </p>
                     </div>
@@ -70,7 +66,6 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, h
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

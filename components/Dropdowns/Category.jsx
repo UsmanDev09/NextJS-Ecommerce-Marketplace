@@ -4,7 +4,6 @@ import { useState } from "react";
 import * as path from "../../constants/paths";
 
 const Category = (props) => {
-  console.log('category', props)
   const [clicked, setClicked] = useState(false);
   return (
     <li>
@@ -12,11 +11,7 @@ const Category = (props) => {
         onClick={() => setClicked(!clicked)}
         id="mega-menu-icons-dropdown-button"
         data-dropdown-toggle="mega-menu-icons-dropdown"
-        className={`flex justify-between items-center text-[16px] font-unica border-gray-100  hover:text-black md:hover:bg-transparent xs:hidden  lg:flex ${
-          props.yScroll > 722 || props.path !== "/"
-            ? "text-[#1C1F22] hover:text-[#636464]"
-            : "text-[#F5F8FA] hover:text-black"
-        }`}
+        className={`flex justify-between items-center hover:text-hover text-[16px] font-unica border-gray-100   md:hover:bg-transparent xs:hidden  lg:flex text-secondary`}
       >
         INFINITY
         <svg

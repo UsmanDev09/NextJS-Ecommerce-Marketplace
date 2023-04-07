@@ -3,7 +3,6 @@ import User from "../../model/user"
 
 const handler = async (req, res) => {
   if (req.method === "GET") {
-    console.log(req.body)
     let user = new User(req.body)
     user.save()
     res.status(200).json({ success: req.body })

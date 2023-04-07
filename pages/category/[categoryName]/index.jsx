@@ -9,14 +9,13 @@ import CategoryAPI from "../../../api/category/category";
 import PriceRange from "../../../components/PriceRange/PriceRange";
 import * as path from "../../../constants/paths";
 
-const SingleCategory = ({categories, category, addToCart}) => {
-  console.log('categories2', categories, category);
+const SingleCategory = ({categories, category, addToCart, removeFromCart, removeProductFromCart, clearCart, subTotal}) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
   return (
     <>
-      <div className="flex">
-        <div className=" w-80  ml-24 mt-4">
+      <div className="flex padding">
+        <div className=" w-80 mt-4">
           <SideBar />
           {categories &&
             categories.map((category) => {
@@ -65,9 +64,8 @@ const SingleCategory = ({categories, category, addToCart}) => {
 
           <p className="text-center mt-6 font-comfortaa text-[#1C1F22]">$0 - $999+</p>
         </div>
-        <div className="w-3/4">
+        <div className="w-3/4 mt-10">
           <div>
-            {console.log('categories', category[0])}
             <Products
               addToCart={addToCart}
               removeFromCart={removeFromCart}
@@ -91,13 +89,10 @@ const SingleCategory = ({categories, category, addToCart}) => {
 
 export const getStaticProps = async (context) => {
   const name = context.params.categoryName;
-  console.log('name, name', name)
   try {
     const response = await CategoryAPI.getCategory(name);
-            console.log('ress', response)
 
     const singleCategory = await response.json();
-        console.log('ress', singleCategory)
 
     return {
       props: {
@@ -113,16 +108,16 @@ export const getStaticProps = async (context) => {
 
 export const getStaticPaths = async () => {
   try {
-    // const response = await CategoryAPI.getAllCategories();
-    // const categories = await response.json();
-    // const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    // const names = arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
-    // const paths =  names.map((name) => ({
-    //   params: {
-    //     categoryName: name.toString(),
-    //   },
-    // }))
-    const paths = []
+    const response = await CategoryAPI.getAllCategories();
+    const categories = await response.json();
+    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
+    const names = arrayOfCategories.map((category) => category[Object.keys(category)[0]].name);
+    const paths =  names.map((name) => ({
+      params: {
+        categoryName: name.toString(),
+      },
+    }))
+
 
     return {
       paths,

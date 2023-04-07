@@ -5,7 +5,6 @@ const AuthAPI = Object.freeze({
 })
 
 const login = (data) => {
-  console.log(data, fullUrl)
   const credentials = btoa(`${data.username}:${data.password}`)
   return fetch(`${fullUrl}/login`, {
     method: "GET",

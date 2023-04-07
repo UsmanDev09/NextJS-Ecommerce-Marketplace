@@ -8,7 +8,7 @@ import deleteIcon from "../../public/images/delete.svg";
 const Cart = ({cart, addToCart, removeFromCart, subTotal, removeProductFromCart}) => {
   return (
     <>
-      <div className="ml-20 mt-10 relative mb-56">
+      <div className="padding pt-16  relative mb-56">
         <div className="flex">
           <h1 className="font-unica text-3xl">SHOPPING CART</h1>
           <div className="flex justify-center items-center bg-[#F5F8FA] ml-4 p-2 pl-4 pr-4 rounded-full">
@@ -18,7 +18,7 @@ const Cart = ({cart, addToCart, removeFromCart, subTotal, removeProductFromCart}
           </div>
         </div>
         <div className="flex flex-wrap">
-          <div className="flex-col  p-4  bg-white dark:bg-gray-800">
+          <div className="flex-col pt-4 bg-white dark:bg-gray-800">
             {cart &&
               Object.keys(cart).map((item) => {
                 return (
@@ -112,7 +112,7 @@ const Cart = ({cart, addToCart, removeFromCart, subTotal, removeProductFromCart}
               })}
           </div>
 
-          <div className="2xl:ml-10 md:ml-12 h-80 flex justify-center items-center">
+          <div className=" h-80 flex justify-center items-center">
             <div className="bg-[#F5F8FA] sm: w-[350px] md:w-[450px] lg:w-[500px] p-12   rounded-xl">
               <SubTotal subTotal={subTotal} />
             </div>

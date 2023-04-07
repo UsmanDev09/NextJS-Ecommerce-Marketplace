@@ -13,7 +13,6 @@ const DisplayCategories = (props) => {
   const categories = props?.categories;
 
   const clickedRating = (rating) => {
-    console.log(rating)
   }
   return (
 
@@ -64,7 +63,6 @@ const DisplayCategories = (props) => {
         <div className="w-3/4">
           {categories ?
             categories.map((category) => {
-              console.log("Cat", category[Object.keys(category)[0]]);
               return (
                 <>
                   <div key={category.categoryId}></div>

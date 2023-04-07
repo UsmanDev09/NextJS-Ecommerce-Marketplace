@@ -3,7 +3,6 @@ import category from '../../model/category';
 
 const handler = async (req, res) => {
   if (req.method === 'GET') {
-    console.log(req.body);
     let categories = await category.find().populate('products');
 
     res.status(200).json(categories);

@@ -6,7 +6,6 @@ const SearchBar = (props) => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [categoryId, setCategoryId] = useState();
   const [clicked, setClicked] = useState(false);
-  console.log(props)
   const onSearchHandler = (e) => {
     setSearchItem(e.target.value);
   };
@@ -16,14 +15,14 @@ const SearchBar = (props) => {
       <div>
         <div>
           <div className="flex items-center justify-center xs:mt-4 md:mt-0">
-            <div className="flex border-1 bg-[rgba(216,216,216,0.1)] rounded-full ">
+            <div className="flex border-1 bg-[rgba(216,216,216,0.1)] rounded-sm w-full">
               <button
                 id="dropdown-button"
                 data-dropdown-toggle="dropdown"
                 className={`flex-shrink-0 z-10 hidden items-center py-2.5 px-4 text-[12px] font-comfortaa  text-center bg-[rgba(216,216,216,0.1)] border border-[#F5F8FA]  rounded-l-full hover:bg-[rgba(216,216,216,0.14)] focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
                   props.yScroll > 722 || props.path !== "/"
-                    ? "text-black border-[#1C1F22]"
-                    : "text-white border-[#F5F8FA]"
+                   ? "text-primary hover:text-secondary"
+                   : "text-secondary hover:text-primary"
                 }`}
                 onClick={() => setClicked(!clicked)}
               >
@@ -85,11 +84,7 @@ const SearchBar = (props) => {
               <input
                 onChange={(e) => onSearchHandler(e)}
                 type="text"
-                className={`px-4 py-2 bg-[rgba(216,216,216,0.1)] placeholder:font-comfortaa xs:w-[350px] sm:w-[450px] xs:max-w-full md:w-[400px] lg:w-[500px]  text-white border  border-l-1 rounded-l-full border-r-0 outline-none ${
-                  (props.yScroll > 722 || props.path !== "/")
-                    ? "border-[#1C1F22] text-[#1C1F22]"
-                    : "border-[#F5F8FA] text-[#F5F8FA]"
-                }`}
+                className={`px-4 py-2 bg-[rgba(216,216,216,0.1)] placeholder:font-comfortaa w-full lg:w-[500px]  text-black border  border-l-1 rounded-l-sm border-r-0 outline-none border-[#1C1F22]`}
                 placeholder="Search for anything"
               />
               <Link href="/search">
@@ -97,17 +92,13 @@ const SearchBar = (props) => {
                   onClick={(e) => {
                     props.searchHandler(searchItem, categoryId);
                   }}
-                  className={`flex  bg-[rgba(216,216,216,0.1)] border  border-l-0 hover:bg-[rgba(216,216,216,0.14)] items-center justify-center px-4  rounded-full rounded-r-full rounded-l-none ${
-                    props.yScroll > 722 || props.path !== "/"
-                      ? "border-[#1C1F22]"
-                      : "border-[#F5F8FA]"
-                  }`}
+                  className={`flex  bg-[rgba(216,216,216,0.1)] border  border-l-0 hover:bg-[rgba(216,216,216,0.14)] items-center justify-center px-4  rounded-sm rounded-r-sm rounded-l-none border-[#1C1F22]`}
                 >
                   <svg
                     className={`w-6 h-[41px]  ${
                       props.yScroll > 722 || props.path !== "/"
-                        ? "text-gray-800"
-                        : "text-gray-100"
+                        ? "text-primary"
+                        : "text-secondary"
                     }`}
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"

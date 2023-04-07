@@ -112,10 +112,8 @@ const NewProductAdd = (props) => {
 
     <Formik
       onSubmit={async (data) => {
-        console.log(data)
         try {
           const response = await ProductAPI.addProductToCategory( data);
-          console.log(response);
           // const jsonResponse = await response?.json();
           // const productResponse = await ProductAPI.addProductToCategory(jsonResponse, data.category, token)
           // router.push(`${path.CATEGORIES}`)

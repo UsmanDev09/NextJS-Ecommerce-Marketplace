@@ -38,3 +38,27 @@
   font-family: 'Unica One';
   src: url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 }
+
+html,body,#__next {
+  height: 100%;
+}
+
+#__next{
+  margin: 0 10px;
+}
+
+.padding {
+  max-width: 73.25rem;
+  margin: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: rgb(218, 214, 214);
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: black;
+}

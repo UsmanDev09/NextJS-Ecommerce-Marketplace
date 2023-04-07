@@ -3,11 +3,11 @@ import ProfileSideBar from "../../../components/Profile/ProfileSideBar";
 import AddPayment from "../../../components/Profile/AddPayment";
 
 const Addresses = () => {
-  const session = useSession();
   return (
-    <div className="mx-auto mt-0 md:pl-16 sm:pl-8 sm:flex xs:flex-wrap  xl:flex-nowrap min-h-[calc(100vh-260px)]">
+    <div className="mx-auto flex md:flex-nowrap flex-wrap  xl:flex-nowrap min-h-[calc(100vh-260px)]">
       <ProfileSideBar />
       <AddPayment />
+
     </div>
   );
 };

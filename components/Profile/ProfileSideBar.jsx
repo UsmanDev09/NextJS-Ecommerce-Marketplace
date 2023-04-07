@@ -42,8 +42,8 @@ const SideBar = (props) => {
     },
   ];
   return (
-    <div className="w-80" aria-label="Sidebar">
-      <div className="xs:overflow-y-auto md:overflow-y-clip xl:overflow-y-auto xs:w-[80vw] md:w-auto py-4 px-3">
+    <div className="w-full md:w-80 " aria-label="Sidebar">
+      <div className="xs:overflow-y-auto md:overflow-y-clip xl:overflow-y-auto md:w-auto py-4">
         <ul className="space-y-2">
           <li className="flex items-center border-b-2 border-black pb-3">
             <Link href={`${path.HOMEPAGE}`} className="font-comfortaa">
@@ -72,7 +72,7 @@ const SideBar = (props) => {
             </Link>
           </li>
           <li className="font-unica text-2xl pt-2">PROFILE</li>
-          <div className="flex flex-row xl:flex-col ">
+          <div className="flex md:flex-col sm:flex-row overflow-auto scrollbar">
           {profileArray.map((ele, index) => {
             let flag = checkPath(ele.path);
             return (

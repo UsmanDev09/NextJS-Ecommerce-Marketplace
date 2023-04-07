@@ -5,12 +5,11 @@ import Image from "next/image";
 import * as path from "../../constants/paths";
 
 const Cart = ({cartClicked, setCartClicked, props}) => {
-  console.log(props)
   return (
     <>
       <div
         id="drawer-example"
-        className="flex-col drawer  fixed right-0 top-[90px] z-40 h-screen p-4 overflow-y-auto shadow-2xl bg-white w-80 dark:bg-gray-800"
+        className="flex-col drawer fixed  lg:top-[90px] top-[120px] md:right-auto right-3 z-40 h-screen p-4 overflow-y-auto shadow-2xl bg-white w-80 dark:bg-gray-800"
         tab-index={-1}
         aria-labelledby="drawer-label"
       >
@@ -25,7 +24,7 @@ const Cart = ({cartClicked, setCartClicked, props}) => {
             type="button"
             data-drawer-dismiss="drawer-example"
             aria-controls="drawer-example"
-            className="text-gray-400 bg-transparent hover:bg-gray-800  rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center"
+            className="text-gray-400 bg-transparent hover:text-hover  rounded-lg text-sm p-1.5 absolute top-1.5 right-2.5 inline-flex items-center"
           >
             <svg
               aria-hidden="true"
@@ -47,7 +46,7 @@ const Cart = ({cartClicked, setCartClicked, props}) => {
             Object.keys(props.cart).map((item) => {
               return (
                 <div key={item}>
-                  <li className="flex  py-6">
+                  <li className="flex mt-10 py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <Image
                         src={defaultImage}
@@ -107,15 +106,15 @@ const Cart = ({cartClicked, setCartClicked, props}) => {
           <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
             <div className="flex justify-between text-base font-comfortaa text-gray-900">
               <p>Subtotal</p>
-              <p>{props.subTotal}</p>
+              <p>$ {props.subTotal}</p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500 font-comfortaa">
               Shipping and taxes calculated at checkout.
             </p>
             <div className="mt-6">
               <Link
-                href="/checkout"
-                className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
+                href={`${path.SHIPPING_DETAILS}`}
+                className="flex items-center justify-center rounded-md border border-transparent bg-secondary px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:text-hover"
               >
                 Checkout
               </Link>

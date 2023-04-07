@@ -43,14 +43,14 @@ const AddPayment = (props) => {
         })}
         <div className="mt-12">
           <Label label="Add new payment method" />
-          <div className="flex">
-            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8">
+          <div className="flex xl:flex-row flex-col ">
+            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8 xl:mb-0 mb-2">
               <img src="/images/Google_Pay_Logo.svg" alt="Google Pay" />
             </button>
-            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8">
+            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8 xl:mb-0 mb-2">
               <img src="/images/PayPal.svg" alt="Google Pay" />
             </button>
-            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8">
+            <button className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8 xl:mb-0 mb-2">
               <img src="/images/Stripe_Logo.svg" alt="Google Pay" />
             </button>
             <Link

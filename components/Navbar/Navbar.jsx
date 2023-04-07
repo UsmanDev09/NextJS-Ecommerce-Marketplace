@@ -19,7 +19,6 @@ export const Navbar = (props) => {
   const [isSignOut, setIsSignOut] = useState(false);
   const [yScroll, setYScroll] = useState(0);
 
-  const session = useSession();
   const router = useRouter();
 
   const handleNavigation = useCallback(
@@ -52,11 +51,7 @@ export const Navbar = (props) => {
     <>
       <Link
         href={`${path.LOGIN}`}
-        className={`flex justify-between items-center text-[16px] font-unica border-gray-100 hover:bg-gray-50 md:hover:bg-transparent xs:hidden lg:flex ${
-          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
-            ? "text-[#1C1F22] hover:text-[#636464]"
-            : "text-[#F5F8FA] hover:text-[#1C1F22]"
-        }`}
+        className={`flex justify-between items-center text-[16px] hover:text-hover font-unica border-gray-100 hover:bg-gray-50 md:hover:bg-transparent xs:hidden lg:flex text-secondary`}
       >
         <button
           onClick={(e) => {
@@ -68,18 +63,14 @@ export const Navbar = (props) => {
           SIGN OUT
         </button>
       </Link>
-      <hr className={`border-[1px] h-10 xs:order-6 md:order-[0]
+      {/* <hr className={`border-[1px] h-10 xs:order-6 md:order-[0]
       ${yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
             ? "bg-[#1C1F22]"
             : "bg-[#F5F8FA]"
-        }`}/>
+        }`}/> */}
       <Link
         href={`${path.PROFILE}`}
-        className={`flex justify-between items-center text-[16px] font-unica no-underline  border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 ${
-          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
-            ? "text-[#1C1F22] hover:text-[#636464]"
-            : "text-[#F5F8FA] hover:text-[#1C1F22]"
-        }`}
+        className={`flex justify-between items-center text-[16px] hover:text-hover font-unica no-underline  border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 text-secondary`}
       >
         <Image src={profileIcon} alt="profile icon" className="rounded-full" width={32} height={32}></Image>
       </Link>
@@ -95,25 +86,21 @@ export const Navbar = (props) => {
     <>
       <Link
         href={`${path.LOGIN}`}
-        className={` font-unica hover:text-black text-[16px] rounded-lg text-sm focus:text-black ${
-          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
-            ? "text-[#1C1F22] hover:text-[#636464]"
-            : "text-[#F5F8FA] hover:text-[#1C1F22]"
-        }`}
+        className={` font-unic text-[16px] hover:text-hover rounded-lg text-sm focus:text-black text-secondary`}
       >
         LOGIN
       </Link>
       <Link
         href="#"
-        className={` hover:text-black font-unica text-[16px] rounded-lg text-sm  focus:text-black dark:focus:ring-blue-800 ${
+        className={` hover:text-black font-unica text-[16px] rounded-lg text-sm hover:text-hover focus:text-black dark:focus:ring-blue-800 ${
           yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
-            ? "text-[#1C1F22] hover:text-[#636464]"
-            : "text-[#F5F8FA] hover:text-[#1C1F22]"
+            ? "text-[#1C1F22] "
+            : "text-[#F5F8FA] "
         }`}
       >
         Sign up
       </Link>
-      <hr className="border-[1px] h-10 bg-[#F5F8FA]"/>
+      {/* <hr className="border-[1px] h-10 bg-[#F5F8FA]"/> */}
       <Cart
         props={props}
         cartClicked={cartClicked}
@@ -124,27 +111,18 @@ export const Navbar = (props) => {
 
   return (
     <nav
-      className={`absolute w-full top-0 z-10  border-b border-gray-200 xs:px-5  py-4
-      ${
-        yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
-          ? "bg-[#F5F8FA]"
-          : "backdrop-filter backdrop-blur-lg"
-      }
+      className={`padding relative top-0 z-10  border-b border-gray-200 xs:px-5 py-4
       ${router.pathname === (`${path.LOGIN}` || `${path.REGISTER}`) ? "hidden" : "block"}`}
     >
-      <div className=" flex flex-wrap items-center xs:justify-center md:justify-between lg:pt-0 max-w-screen-3xl">
-        <div className="flex h-10 items-center xs:order-1 xs:mr-auto md:m-0">
+      <div className=" flex flex-wrap items-center xs:justify-center justify-between lg:pt-0 max-w-screen-3xl">
+        <div className="flex h-10 items-center order-1 xs:mr-auto md:m-0">
           <Link href="/" className="flex items-center">
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              {yScroll < 722 && router.pathname === `${path.HOMEPAGE}` ? (
-                <Image src={whiteLogo} width={140} height={10} alt="logo" />
-              ) : (
-                <Image src={blackLogo} width={150} height={10} alt="logo" />
-              )}
+              <Image src={blackLogo} width={150} height={10} alt="logo" />
             </span>
           </Link>
         </div>
-        <div className="xs:order-3 lg:pb-0 md:order-2">
+        <div className=" order-3 lg:order-2 xl:order-2 justify-center lg:pb-0 w-full  xl:w-auto lg:w-auto ">
           <SearchBar
             categories={props.categories}
             addToCart={props.addToCart}
@@ -157,12 +135,12 @@ export const Navbar = (props) => {
         </div>
         <div
           id="mega-menu-icons"
-          className="w-full flex xs:w-auto xs:ml-auto md:m-0 xs:order-2 md:order-3"
+          className=" flex xs:w-auto xs:ml-auto md:m-0 order-2 xl:order-3 lg:order-3  "
         >
           <button
               data-collapse-toggle="mega-menu-icons"
               type="button"
-              className="sm:flex xs:order-2  md:order-1 lg:hidden items-center pt-2 pb-2 ml-0 text-sm text-white rounded-lg  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+              className="sm:flex xs:order-2  md:order-2 lg:hidden items-center pt-2 pb-2 ml-0 text-sm text-white rounded-lg  hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 "
               aria-controls="mega-menu-icons"
               aria-expanded="false"
             >
@@ -181,7 +159,7 @@ export const Navbar = (props) => {
                 ></path>
               </svg>
             </button>
-          <ul className="flex items-center justify-between text-sm font-medium xs:w-[100px] lg:w-[300px] xs:order-1 md:order-2">
+          <ul className="flex items-center justify-between text-sm font-medium lg:w-[300px] md:w-[300px] sm:w-[250px] ">
             <Category
               path={router.pathname}
               yScroll={yScroll}
