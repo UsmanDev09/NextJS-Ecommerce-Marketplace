@@ -91,9 +91,7 @@ export const getServerSideProps = async (context) => {
   const name = context.params.categoryName;
   try {
     const response = await CategoryAPI.getCategory(name);
-    console.log(response);
     const singleCategory = await response.json()
-    console.log(singleCategory)
     return {
       props: {
         category: JSON.parse(JSON.stringify(singleCategory)),
