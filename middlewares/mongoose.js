@@ -8,6 +8,7 @@ const connectDb = (handler) => async (req, res) => {
     return handler(req, res)
   }
   console.log("Connecting", mongoose.connections[0].readyState)
+  await mongoose.set('strictQuery', true)
   await mongoose.connect('mongodb+srv://admin:admin@cluster0.jrjaw5z.mongodb.net/test', () => {
     console.log('Connected to MongoDB', process.env.MONGO_URL)
   })
