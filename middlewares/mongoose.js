@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const connectDb = (handler) => async (req, res) => {
-    console.log('Connecting', mongoose.connections[0].readyState)
+    console.log('Connecting', req)
 
   if (mongoose.connections[0].readyState) {
     console.log("Connected")
