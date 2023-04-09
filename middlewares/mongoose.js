@@ -15,11 +15,12 @@ const connectDb = (handler) => async (req, res) => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
-    },
-    () => {
-      console.log('Connected to MongoDB', process.env.MONGO_URL)
-    },
+    }
   )
+
+  mongoose.connection.once('connected', () => {
+    console.log('Connected to MongoDB', process.env.MONGO_URL)
+  })
   console.log('Connected to MongoDB and returning handler')
   return handler(req, res)
 }
